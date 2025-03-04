@@ -1,11 +1,9 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:address_search_auto_complete/address_search_auto_complete_method_channel.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelAddressSearchAutoComplete platform = MethodChannelAddressSearchAutoComplete();
   const MethodChannel channel = MethodChannel('address_search_auto_complete');
 
   setUp(() {
@@ -21,7 +19,4 @@ void main() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
   });
 
-  test('getPlatformVersion', () async {
-    expect(await platform.getPlatformVersion(), '42');
-  });
 }

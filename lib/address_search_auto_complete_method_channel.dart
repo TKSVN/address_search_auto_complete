@@ -10,8 +10,20 @@ class MethodChannelAddressSearchAutoComplete extends AddressSearchAutoCompletePl
   final methodChannel = const MethodChannel('address_search_auto_complete');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<List<String>> searchAddress(String query) async {
+    final List<dynamic>? results = await methodChannel.invokeMethod<List<dynamic>>(
+      'searchAddress',
+      {'query': query},
+    );
+    return results?.cast<String>() ?? [];
+  }
+
+  @override
+  Future<List<Map<String, dynamic>>> addressToLatLng(String address) async {
+    final List<dynamic>? results = await methodChannel.invokeMethod<List<dynamic>>(
+      'addressToLatLng',
+      {'address': address},
+    );
+    return results?.cast<Map<String, dynamic>>() ?? [];
   }
 }

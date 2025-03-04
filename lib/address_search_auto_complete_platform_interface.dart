@@ -23,7 +23,11 @@ abstract class AddressSearchAutoCompletePlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+  Future<List<String>> searchAddress(String query) {
+    throw UnimplementedError('searchAddress() has not been implemented.');
+  }
+
+  Future<List<Map<String, dynamic>>> addressToLatLng(String address) {
+    throw UnimplementedError('addressToLatLng() has not been implemented.');
   }
 }
