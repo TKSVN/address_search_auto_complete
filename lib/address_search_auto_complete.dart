@@ -1,8 +1,12 @@
-
 import 'address_search_auto_complete_platform_interface.dart';
 
 class AddressSearchAutoComplete {
-  Future<String?> getPlatformVersion() {
-    return AddressSearchAutoCompletePlatform.instance.getPlatformVersion();
+
+  Future<List<String>> searchAddress(String query) {
+    return AddressSearchAutoCompletePlatform.instance.searchAddress(query);
+  }
+
+  Future<List<Map<String, dynamic>>> addressToLatLng(String address) {
+    return AddressSearchAutoCompletePlatform.instance.addressToLatLng(address);
   }
 }
